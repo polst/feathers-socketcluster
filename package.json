@@ -54,7 +54,7 @@
   },
   "dependencies": {
     "debug": "^2.2.0",
-    "feathers-socket-commons": "^2.0.0",
+    "feathers-socket-commons": "github:polst/feathers-socket-commons",
     "to-array": "^0.1.4",
     "uberproto": "^1.2.0"
   },
