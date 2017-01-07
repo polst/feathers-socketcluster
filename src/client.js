@@ -14,7 +14,7 @@ Service.prototype.send = function () {
   if (callback) {
     query.push(callback);
   }
-  scSend.apply(this, query);
+  return scSend.apply(this, query);
 };
 
 export default function (connection, options) {
