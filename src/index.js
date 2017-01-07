@@ -13,10 +13,6 @@ export default function (options, config) {
         let sc = this.sc;
         if (!sc) {
           sc = this.sc = options.socketServer;
-          sc.addMiddleware(options.socketServer.MIDDLEWARE_EMIT, function (req, next) {
-            req.socket.feathers = { provider: 'sc' };
-            next();
-          });
         }
 
         if (typeof config === 'function') {
@@ -32,8 +28,8 @@ export default function (options, config) {
           clients () {
             return sc.clients;
           },
-          params (socket) {
-            return socket.feathers;
+          params () {
+            return { provider: 'sc' };
           }
         };
 
