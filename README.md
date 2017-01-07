@@ -23,6 +23,7 @@ Tests not working.
 import feathers from 'feathers';
 import feathersSocket from 'feathers-socketcluster';
 let scServer = worker.scServer;
+let httpServer = worker.httpServer;
 const app = feathers()
   .configure(feathersSocket({socketServer: scServer}, function(io) {
     
@@ -38,6 +39,8 @@ app.use('/todos', {
     });
   }
 });
+
+app.setup(httpServer);
 ```
 
 ## Client use
