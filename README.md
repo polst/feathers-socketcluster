@@ -11,18 +11,20 @@
 
 ## About
 
-This provider exposes [Feathers](http://feathersjs.com) services through a [SocketCluster](http://socketcluster.io/) real-time API. It is compatible with Feathers 1.x and 2.x.
+This provider exposes [Feathers](http://feathersjs.com) services through a [SocketCluster](http://socketcluster.io/) real-time API. It is compatible with Feathers 2.x (1.x not tested).
+
+Tests not working.
 
 ~~__Note:__ For the full API documentation go to [http://docs.feathersjs.com/real-time/socket-io.html](http://docs.feathersjs.com/real-time/socket-io.html).~~
 
-## Quick example on SC worker
+## Quick example on SC worker controller
 
 ```js
 import feathers from 'feathers';
-import socketio from 'feathers-socketcluster';
-
+import feathersSocket from 'feathers-socketcluster';
+let scServer = worker.scServer;
 const app = feathers()
-  .configure(socketio({socketServer: scServer}, function(io) {
+  .configure(feathersSocket({socketServer: scServer}, function(io) {
     
   }));
 
@@ -43,11 +45,11 @@ app.use('/todos', {
 ```js
 import socketCluster from 'socketcluster-client';
 import feathers from 'feathers/client';
-import socketio from 'feathers-socketcluster/client';
+import feathersSC from 'feathers-socketcluster/client';
 
 const socket = socketCluster.connect({ port: 8000 });
 const app = feathers()
-  .configure(feathers.socketio(socket));
+  .configure(feathersSC(socket));
 ```
 
 ## License
