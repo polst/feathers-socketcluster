@@ -17,6 +17,8 @@ Tests not working.
 
 ~~__Note:__ For the full API documentation go to [http://docs.feathersjs.com/real-time/socket-io.html](http://docs.feathersjs.com/real-time/socket-io.html).~~
 
+__Note:__ Not working with feathers authentication as there is an event naming collision between that package and SC (`authenticate`)
+
 ## Quick example on SC worker controller
 
 ```js
